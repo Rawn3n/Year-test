@@ -21,7 +21,7 @@ public class Glock : Weapon
         // Tilføj en SpriteRenderer, så vi kan se kuglen
         SpriteRenderer sr = bullet.AddComponent<SpriteRenderer>();
         sr.sprite = bulletSprite;         // Brug den sprite, der er sat i Inspector
-        sr.color = Color.yellow;          // Gør kuglen gul for synlighed
+        //sr.color = Color.yellow;          // Gør kuglen gul for synlighed
 
         // Tilføj en Collider, så kuglen kan kollidere med andre objekter
         CircleCollider2D col = bullet.AddComponent<CircleCollider2D>();

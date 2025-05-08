@@ -5,19 +5,20 @@ using UnityEngine.SceneManagement;
 public class EnemyPatrol : MonoBehaviour
 {
     public float speed = 2f;
-    private Rigidbody2D rb;
-    private bool movingRight = true;
+    public Rigidbody2D rb;
+    protected bool movingRight = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         float direction = movingRight ? 1f : -1f;
         rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -28,7 +29,7 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    void Flip()
+    public void Flip()
     {
         movingRight = !movingRight;
         transform.eulerAngles = new Vector3(0, movingRight ? 0 : 180, 0);
