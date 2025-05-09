@@ -215,12 +215,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -7777677719190926303, guid: 748e2a99f9a7b2f4a9b604726508ce62, type: 3}
+  m_Sprite: {fileID: -1217826210901110741, guid: 0d5047889c1a2d84da35d8f73217184a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.48, y: 0.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0.3
-  gravity: 0.3
+  gravity: 0.2
   bulletSpeed: 15
   weapontag: Glock
   firePoint: {fileID: 1911958207}
@@ -1940,7 +1940,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1919041225542432625, guid: c82ef16abe8a98342b45e8c639f851a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2039,7 +2039,7 @@ Transform:
   m_GameObject: {fileID: 2000286565}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7114403, w: 0.70274657}
-  m_LocalPosition: {x: 0.3, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0.3, y: 0.1, z: 0}
   m_LocalScale: {x: 1.1902472, y: 1.708413, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
