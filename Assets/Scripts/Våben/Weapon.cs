@@ -32,7 +32,19 @@ public abstract class Weapon : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = mousePosition - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Drej våbenet mod musen
         transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // Flip i Y-aksen hvis vinklen er uden for -90 til 90 grader (dvs. peger mod venstre)
+        if (angle > 90 || angle < -90)
+        {
+            transform.localScale = new Vector3(1, -1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     protected abstract void Fire(); // Skal implementeres i underklasser

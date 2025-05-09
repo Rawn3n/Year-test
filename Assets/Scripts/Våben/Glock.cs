@@ -18,6 +18,10 @@ public class Glock : Weapon
         // Sæt kuglens startposition til firePoint
         bullet.transform.position = firePoint.position;
 
+        //Drej kuglen mod rigtigte retning
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
+
         // Tilføj en SpriteRenderer, så vi kan se kuglen
         SpriteRenderer sr = bullet.AddComponent<SpriteRenderer>();
         sr.sprite = bulletSprite;         // Brug den sprite, der er sat i Inspector
