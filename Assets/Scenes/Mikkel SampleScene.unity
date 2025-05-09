@@ -753,6 +753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  rb: {fileID: 0}
 --- !u!50 &955727796
 Rigidbody2D:
   serializedVersion: 5
@@ -1750,7 +1751,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2207236230058056998, guid: f4df7934d25cd5548be89ee4823deb45, type: 3}
+  m_Sprite: {fileID: 1035482004992202245, guid: 8b9a455d797807d4bb4580b82f71164f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
