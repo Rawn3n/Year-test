@@ -19,11 +19,21 @@ public abstract class Weapon : MonoBehaviour
     }
     protected virtual void Update()
     {
+        RotateTowardsMouse();
+
         if (Input.GetMouseButton(0) && playerController.canAttack() && Time.time >= nextFireTime)
         {
             nextFireTime = Time.time + fireRate;
             Fire();
         }
     }
+    private void RotateTowardsMouse()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mousePosition - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
     protected abstract void Fire(); // Skal implementeres i underklasser
 }

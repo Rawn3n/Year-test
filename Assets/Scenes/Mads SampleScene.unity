@@ -753,6 +753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  rb: {fileID: 0}
 --- !u!50 &955727796
 Rigidbody2D:
   serializedVersion: 5
@@ -881,8 +882,8 @@ Transform:
   m_GameObject: {fileID: 955727794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.23, y: 2.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.2466, y: 2.12, z: 0}
+  m_LocalScale: {x: 0.9668, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1838612740}
@@ -1332,8 +1333,8 @@ Transform:
   m_GameObject: {fileID: 1379715503}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.35, y: -0.99, z: 0}
-  m_LocalScale: {x: 0.22536014, y: 1.4503793, z: 1}
+  m_LocalPosition: {x: -3.4658, y: 3.028, z: 0}
+  m_LocalScale: {x: 0.45713297, y: 9.4862795, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1484,6 +1485,7 @@ GameObject:
   - component: {fileID: 1455983500}
   - component: {fileID: 1455983499}
   - component: {fileID: 1455983498}
+  - component: {fileID: 1455983502}
   m_Layer: 0
   m_Name: Square (6)
   m_TagString: Untagged
@@ -1628,12 +1630,28 @@ Transform:
   m_GameObject: {fileID: 1455983497}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.69, y: 2.48, z: 0}
-  m_LocalScale: {x: 0.8412, y: 3.3822, z: 1}
+  m_LocalPosition: {x: -9.6066, y: 2.1129, z: 0}
+  m_LocalScale: {x: 0.6743059, y: 2.6479242, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1455983502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455983497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fec710c0d5d204b99717470773193f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  rb: {fileID: 0}
+  flyforceup: 10
+  flydelay: 2
 --- !u!1 &1701444624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,7 +1664,6 @@ GameObject:
   - component: {fileID: 1701444627}
   - component: {fileID: 1701444625}
   - component: {fileID: 1701444629}
-  - component: {fileID: 1701444631}
   - component: {fileID: 1701444626}
   - component: {fileID: 1701444630}
   - component: {fileID: 1701444632}
@@ -1830,18 +1847,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHP: 100
---- !u!114 &1701444631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701444624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b59247b03330d84f936840e3385ac8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1701444632
 MonoBehaviour:
   m_ObjectHideFlags: 0
