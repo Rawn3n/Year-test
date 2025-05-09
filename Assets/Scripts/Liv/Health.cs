@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] protected bool isDamageable = false;
     [SerializeField] protected float startHP = 100f;
     protected float currentHP;
 
@@ -36,7 +37,10 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        currentHP -= damage;
+        if (isDamageable == true)
+        {
+            currentHP -= damage;
+        }
     }
     void HealHP(float heal)
     {
