@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canAttack()
     {
-        return !isJumping;
+        return Physics2D.OverlapCircle(groundcheck.position, groundRadiousCheck, groundMask);
     }
 
 }

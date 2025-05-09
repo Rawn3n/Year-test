@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Glock
   - Rifle
+  - BurstRifle
   layers:
   - Default
   - TransparentFX
