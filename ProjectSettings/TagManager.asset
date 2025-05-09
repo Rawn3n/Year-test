@@ -10,6 +10,7 @@ TagManager:
   - Glock
   - Rifle
   - BurstRifle
+  - Box
   layers:
   - Default
   - TransparentFX
