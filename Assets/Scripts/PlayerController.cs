@@ -56,6 +56,16 @@ public class PlayerController : MonoBehaviour
             jumpsLeft -= 1;
             jumpTimer = maxJumpTimer;
         }
+
+        if (move.x < 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // Kig højre
+        }
+        else if (move.x > 0)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // Kig venstre
+        }
+
     }
 
     public void Boost(int speedMod)

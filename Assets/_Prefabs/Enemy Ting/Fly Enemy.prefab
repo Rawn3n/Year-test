@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 300132217132659517}
   - component: {fileID: 7764782037118829333}
   m_Layer: 0
-  m_Name: Enemy Mappe
+  m_Name: Fly Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

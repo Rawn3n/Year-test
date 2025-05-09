@@ -29,23 +29,25 @@ public abstract class Weapon : MonoBehaviour
     }
     private void RotateTowardsMouse()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePosition - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mousePos - transform.position;
+        direction.z = 0f;
 
-        // Drej våbenet mod musen
+        // Calculate angle
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        // Flip i Y-aksen hvis vinklen er uden for -90 til 90 grader (dvs. peger mod venstre)
-        if (angle > 90 || angle < -90)
-        {
-            transform.localScale = new Vector3(1, -1, 1);
-        }
-        else
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-    }
+        // Check if player is flipped (scale.x < 0)
+        bool isPlayerFacingRight = transform.root.localScale.x < 0;
 
+        // Flip gun X scale based on player direction
+        float flipX = isPlayerFacingRight ? -1f : 1f;
+
+        // Flip Y to keep weapon upright based on aim angle
+        float flipY = (angle > 90 || angle < -90) ? -1f : 1f;
+
+        // Apply flipping
+        transform.localScale = new Vector3(flipX, flipY, 1f);
+    }
     protected abstract void Fire(); // Skal implementeres i underklasser
 }
