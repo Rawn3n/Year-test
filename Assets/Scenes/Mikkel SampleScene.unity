@@ -145,14 +145,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390552632}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.70717144, w: 0.7070421}
-  m_LocalPosition: {x: -0.365, y: 0.065, z: 0}
-  m_LocalScale: {x: 0.34134692, y: 0.89218044, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.268, y: -0.155, z: 0}
+  m_LocalScale: {x: 1.2, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2000286566}
   m_Father: {fileID: 1701444628}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.01}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &390552634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   bulletSpeed: 20
   weapontag: Rifle
   firePoint: {fileID: 2000286566}
-  bulletSprite: {fileID: -5229123724695195013, guid: e211d5b4a7e476c488ed15d2098b0638, type: 3}
+  bulletSprite: {fileID: -7933554488492344687, guid: b5de08410ae152041bed7eb4679dc149, type: 3}
 --- !u!212 &390552635
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -214,9 +214,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.0046408176, g: 1, b: 0, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 1919041225542432625, guid: c82ef16abe8a98342b45e8c639f851a3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -466,7 +466,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1646,7 +1646,6 @@ GameObject:
   - component: {fileID: 1701444627}
   - component: {fileID: 1701444625}
   - component: {fileID: 1701444629}
-  - component: {fileID: 1701444631}
   - component: {fileID: 1701444626}
   - component: {fileID: 1701444630}
   - component: {fileID: 1701444632}
@@ -1751,7 +1750,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -2207236230058056998, guid: f4df7934d25cd5548be89ee4823deb45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1772,7 +1771,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.54, y: 2.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1238801092}
@@ -1830,18 +1829,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHP: 100
---- !u!114 &1701444631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701444624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b59247b03330d84f936840e3385ac8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1701444632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1892,7 +1879,7 @@ MonoBehaviour:
   bulletSpeed: 15
   weapontag: Glock
   firePoint: {fileID: 1911958207}
-  bulletSprite: {fileID: -5229123724695195013, guid: e211d5b4a7e476c488ed15d2098b0638, type: 3}
+  bulletSprite: {fileID: -7933554488492344687, guid: b5de08410ae152041bed7eb4679dc149, type: 3}
 --- !u!4 &1702936989
 Transform:
   m_ObjectHideFlags: 0
@@ -1901,14 +1888,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702936987}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.70717144, w: 0.7070421}
-  m_LocalPosition: {x: -0.33001375, y: 0.0678494, z: 0}
-  m_LocalScale: {x: 0.58529997, y: 0.8402, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.058, y: -0.188, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1911958207}
   m_Father: {fileID: 1701444628}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.01}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &1702936990
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1952,9 +1939,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.80667377, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 1919041225542432625, guid: c82ef16abe8a98342b45e8c639f851a3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
