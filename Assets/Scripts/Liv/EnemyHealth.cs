@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    private float glockDamage = 3;
-    private float Riflekamage = 5;
-    private float burstDamage = 10;
+    [SerializeField] private float glockDamage = 3f;
+    [SerializeField] private float rifleDamage = 5f;
+    [SerializeField] private float burstDamage = 7f;
     void Start()
     {
         currentHP = startHP;
@@ -26,6 +26,22 @@ public class EnemyHealth : Health
             if (floatingTextPrefab != null)
             {
                 ShowFloatingText(glockDamage);
+            }
+        }
+        if (other.CompareTag("Rifle"))
+        {
+            TakeDamage(rifleDamage);
+            if (floatingTextPrefab != null)
+            {
+                ShowFloatingText(rifleDamage);
+            }
+        }
+        if (other.CompareTag("BurstRifle"))
+        {
+            TakeDamage(burstDamage);
+            if (floatingTextPrefab != null)
+            {
+                ShowFloatingText(burstDamage);
             }
         }
     }
