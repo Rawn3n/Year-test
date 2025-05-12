@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
+    private float glockDamage = 3;
+    private float Riflekamage = 5;
+    private float burstDamage = 10;
     void Start()
     {
         currentHP = startHP;
@@ -19,7 +22,11 @@ public class EnemyHealth : Health
     {
         if (other.CompareTag("Glock"))
         {
-            TakeDamage(100);
+            TakeDamage(glockDamage);
+            if (floatingTextPrefab != null)
+            {
+                ShowFloatingText(glockDamage);
+            }
         }
     }
     protected override void Kill()

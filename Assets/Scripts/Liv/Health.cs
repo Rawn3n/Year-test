@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +8,8 @@ public class Health : MonoBehaviour
     [SerializeField] protected bool isDamageable = false;
     [SerializeField] protected float startHP = 100f;
     protected float currentHP;
+
+    [SerializeField ]protected GameObject floatingTextPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,5 +64,15 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
         UpdateHealthBar();
         */
+    }
+
+    protected void ShowFloatingText(float textdisplay)
+    {
+        var go = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
+        var textComponent = go.GetComponent<TextMeshPro>();
+        if (textComponent != null)
+        {
+            textComponent.text = textdisplay.ToString();
+        }
     }
 }

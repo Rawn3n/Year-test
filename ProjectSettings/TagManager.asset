@@ -12,6 +12,7 @@ TagManager:
   - BurstRifle
   - Box
   - GraplingHook
+  - NinjaStar
   layers:
   - Default
   - TransparentFX
