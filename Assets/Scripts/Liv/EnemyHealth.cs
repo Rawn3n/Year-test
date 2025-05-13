@@ -16,6 +16,7 @@ public class EnemyHealth : Health
         {
             Kill();
         }
+        healthBar.fillAmount = Mathf.Clamp(currentHP / startHP, 0, 1);
     }
 
     void OnTriggerEnter2D(Collider2D other)

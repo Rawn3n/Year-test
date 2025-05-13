@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField] protected float startHP = 100f;
     protected float currentHP;
 
-    [SerializeField] private Image healthBar;
+    [SerializeField] protected Image healthBar;
 
     [SerializeField ]protected GameObject floatingTextPrefab;
 
