@@ -2,47 +2,42 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Health health;
     public GameObject shooter;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        health = GetComponent<Health>();
+        // Ignore collision with the shooter
+        if (shooter != null)
+        {
+            Collider2D bulletCollider = GetComponent<Collider2D>();
+            Collider2D shooterCollider = shooter.GetComponent<Collider2D>();
+            if (bulletCollider != null && shooterCollider != null)
+            {
+                Physics2D.IgnoreCollision(bulletCollider, shooterCollider);
+            }
+        }
     }
-    void Update()
-    {
 
-    }
     void OnBecameInvisible()
     {
         Destroy(gameObject);
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == shooter)
-            return;
+        // Don't hit the shooter
+        if (other.gameObject == shooter) return;
 
-
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            Destroy(gameObject);
-        }
-        if (other.CompareTag("Enemy"))
-        {
-            if (gameObject.CompareTag("NinjaStar"))
-            {
-
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-        if (other.CompareTag("Player"))
+        // Optional: check if it's something that should stop the bullet
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground") ||
+            other.CompareTag("Enemy") ||
+            other.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
     }
+}
+
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
     //    if (collision.collider.CompareTag("Player"))
@@ -54,4 +49,3 @@ public class Bullet : MonoBehaviour
     //        Destroy(gameObject);
     //    }
     //}
-}

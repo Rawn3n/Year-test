@@ -13,6 +13,7 @@ TagManager:
   - Box
   - GraplingHook
   - NinjaStar
+  - BossBullet
   layers:
   - Default
   - TransparentFX

@@ -28,7 +28,7 @@ public class BurstRifle : Weapon
         Vector2 direction = (mousePos - firePoint.position).normalized;
 
         GameObject bullet = new GameObject("Bullet");
-        bullet.tag = weapontag;
+        bullet.tag = weaponTag;
 
         bullet.transform.position = firePoint.position;
 
@@ -48,6 +48,6 @@ public class BurstRifle : Weapon
 
         bullet.AddComponent<Bullet>();
 
-        IgnoreShooter(bullet);
+        SetShooter(bullet);
     }
 }

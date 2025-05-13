@@ -5,6 +5,8 @@ public class EnemyHealth : Health
     [SerializeField] private float glockDamage = 3f;
     [SerializeField] private float rifleDamage = 5f;
     [SerializeField] private float burstDamage = 7f;
+
+    [SerializeField] private GameObject bossHealthBarList;
     void Start()
     {
         currentHP = startHP;
@@ -49,5 +51,9 @@ public class EnemyHealth : Health
     protected override void Kill()
     {
         Destroy(gameObject);
+        if (bossHealthBarList != null)
+        {
+            Destroy(bossHealthBarList);
+        }
     }
 }

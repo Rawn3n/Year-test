@@ -13,7 +13,7 @@ public class Glock : Weapon
 
         // Opret et nyt GameObject, der skal være selve kuglen
         GameObject bullet = new GameObject("Bullet");
-        bullet.tag = weapontag;
+        bullet.tag = weaponTag;
 
         // Sæt kuglens startposition til firePoint
         bullet.transform.position = firePoint.position;
@@ -40,6 +40,6 @@ public class Glock : Weapon
         // Tilføj Bullet-script, hvis du vil give kuglen yderligere funktion (fx skade)
         bullet.AddComponent<Bullet>();
 
-        IgnoreShooter(bullet); // kald vores funktion så den ikke rammer ham der skyder den
+        SetShooter(bullet); // kald vores funktion så den ikke rammer ham der skyder den
     }
 }

@@ -135,6 +135,6 @@ MonoBehaviour:
   fireRate: 0.1
   gravity: 0.2
   bulletSpeed: 20
-  weapontag: Rifle
+  weaponTag: Rifle
   firePoint: {fileID: 726653194433031121}
   bulletSprite: {fileID: -7933554488492344687, guid: b5de08410ae152041bed7eb4679dc149, type: 3}
