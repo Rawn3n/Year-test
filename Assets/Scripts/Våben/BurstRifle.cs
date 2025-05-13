@@ -47,5 +47,7 @@ public class BurstRifle : Weapon
         rb.linearVelocity = direction * bulletSpeed;
 
         bullet.AddComponent<Bullet>();
+
+        IgnoreShooter(bullet);
     }
 }

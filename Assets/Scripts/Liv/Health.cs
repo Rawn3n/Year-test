@@ -2,12 +2,15 @@ using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] protected bool isDamageable = false;
     [SerializeField] protected float startHP = 100f;
     protected float currentHP;
+
+    [SerializeField] private Image healthBar;
 
     [SerializeField ]protected GameObject floatingTextPrefab;
 
@@ -24,6 +27,8 @@ public class Health : MonoBehaviour
         {
             Kill();
         }
+
+        healthBar.fillAmount = Mathf.Clamp(currentHP / startHP, 0, 1);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,12 +36,18 @@ public class Health : MonoBehaviour
         {
             TakeDamage(50);
         }
+
+        if (collision.collider.CompareTag("Spike"))
+        {
+            TakeDamage(50);
+        }
+
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Spike"))
+        if (other.CompareTag("NinjaStar"))
         {
-            TakeDamage(50);
+            TakeDamage(20);
         }
     }
     public void TakeDamage(float damage)

@@ -27,6 +27,23 @@ public abstract class Weapon : MonoBehaviour
             Fire();
         }
     }
+    public void IgnoreShooter(GameObject bullet)
+    {
+        if (bullet == null || playerController == null) return;
+
+        Bullet bulletComponent = bullet.GetComponent<Bullet>();
+        if (bulletComponent == null) return; // Make sure it has the Bullet script
+
+        bulletComponent.shooter = playerController.gameObject;
+
+        Collider2D bulletCollider = bullet.GetComponent<Collider2D>();
+        Collider2D shooterCollider = playerController.GetComponent<Collider2D>();
+
+        if (bulletCollider != null && shooterCollider != null)
+        {
+            Physics2D.IgnoreCollision(bulletCollider, shooterCollider);
+        }
+    }
     private void RotateTowardsMouse()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

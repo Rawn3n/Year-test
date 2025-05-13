@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 265367319605791247}
   - component: {fileID: 438905539643094955}
   - component: {fileID: 4146337041335534366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spike
   m_TagString: Spike
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3966732345685222526}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00007419469, y: -0.9999039, z: 0.013863455, w: 0.0000010286941}
+  m_LocalRotation: {x: 0.00007873253, y: -0.99990386, z: 0.013866334, w: 0.0000010918366}
   m_LocalPosition: {x: -5.3, y: 0.18, z: 0.01}
   m_LocalScale: {x: 1.2363093, y: 1.303659, z: 1}
   m_ConstrainProportionsScale: 0
@@ -118,7 +118,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -135,6 +135,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+      - {x: -0.5455677, y: -0.513644}
+      - {x: -0.02943803, y: -0.5222868}
+      - {x: 0.55475867, y: -0.51362985}
   m_UseDelaunayMesh: 0

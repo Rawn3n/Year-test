@@ -39,5 +39,7 @@ public class Glock : Weapon
 
         // Tilføj Bullet-script, hvis du vil give kuglen yderligere funktion (fx skade)
         bullet.AddComponent<Bullet>();
+
+        IgnoreShooter(bullet); // kald vores funktion så den ikke rammer ham der skyder den
     }
 }
