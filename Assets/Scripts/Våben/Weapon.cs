@@ -1,33 +1,90 @@
 using UnityEngine;
+using System.Collections;
+using TMPro;
 
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected float fireRate = 0.5f;
     [SerializeField] protected float gravity = 0.5f;
-    [SerializeField] protected float bulletSpeed = 10f;
+    [SerializeField] protected float bulletSpeed = 2f;
+    
+    [SerializeField] protected int startammo = 30;
+    [SerializeField] protected int currentammo;
+    [SerializeField] protected float reloadTime = 10f;
+    [SerializeField] private TextMeshProUGUI AmmoText;
 
     [SerializeField] protected string weaponTag = "";
 
     [SerializeField] protected Transform firePoint;
     [SerializeField] protected Sprite bulletSprite;
 
+    protected bool isReloading = false;
+
+
     protected PlayerController playerController;
     private float nextFireTime;
 
     protected virtual void Start()
     {
-        playerController = GetComponentInParent<PlayerController>(); // Expecting the weapon is a child of the player
+        playerController = GetComponentInParent<PlayerController>();
+
+        currentammo = startammo;
     }
 
     protected virtual void Update()
     {
         RotateTowardsMouse();
+        ShowAmmo(currentammo, AmmoText);
+        if (isReloading)
+        {
+            //Debug.Log("Reloading...");
+            AmmoText.text = "!!";
+            return;
+        }
 
-        if (Input.GetMouseButton(0) && playerController.canAttack() && Time.time >= nextFireTime)
+
+        if (Input.GetMouseButton(0) && playerController.canAttack() && Time.time >= nextFireTime && currentammo >= 1)
         {
             nextFireTime = Time.time + fireRate;
             Fire();
+            //currentammo -= 1;
         }
+        if (currentammo <= 0)
+        {
+            StartCoroutine(ReloadCoroutine());
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(ReloadCoroutine());
+        }
+    }
+    protected void ShowAmmo(int ammo, TextMeshProUGUI text)
+    {
+        if (text != null)
+        {
+            text.text = ammo.ToString();
+        }
+    }
+
+    protected IEnumerator ReloadCoroutine()
+    {
+        isReloading = true;
+
+        float timer = 0f;
+        if (!gameObject.activeInHierarchy)
+        {
+            isReloading = false;
+            yield break;
+        }
+        while (timer < reloadTime)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        currentammo = startammo;
+        isReloading = false;
     }
 
     private void RotateTowardsMouse()

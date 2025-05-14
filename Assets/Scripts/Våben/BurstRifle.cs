@@ -5,7 +5,7 @@ public class BurstRifle : Weapon
 {
     public int burstCount = 3;
     public float burstDelay = 0.1f;
-
+    
     protected override void Fire()
     {
         StartCoroutine(Burst());
@@ -16,6 +16,7 @@ public class BurstRifle : Weapon
         for (int i = 0; i < burstCount; i++)
         {
             FireSingleBullet();
+            currentammo -= 1;
             yield return new WaitForSeconds(burstDelay);
         }
     }

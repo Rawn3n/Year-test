@@ -18,6 +18,9 @@ public class BossDrop : MonoBehaviour
 
     void OnDestroy()
     {
-        Instantiate(bossDrop, transform.position, Quaternion.identity);
+        if (Application.isPlaying)
+        {
+            Instantiate(bossDrop, transform.position, Quaternion.identity);
+        }
     }
 }
