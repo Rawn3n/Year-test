@@ -1709,18 +1709,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2519956981554202961, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
-      propertyPath: orgSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2519956981554202961, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
-      propertyPath: jumpVelocity
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3240768772601873787, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
-      propertyPath: grappleLength
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7814807360351866902, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1729,22 +1717,10 @@ PrefabInstance:
       propertyPath: AmmoText
       value: 
       objectReference: {fileID: 1486197580}
-    - target: {fileID: 7917684600018655403, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
-      propertyPath: reloadTime
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8363005704239651981, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
       propertyPath: AmmoText
       value: 
       objectReference: {fileID: 1486197580}
-    - target: {fileID: 8363005704239651981, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
-      propertyPath: reloadTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8417342535394321524, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 8769397508013323001, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
       propertyPath: healthBar
       value: 
@@ -1753,14 +1729,6 @@ PrefabInstance:
       propertyPath: AmmoText
       value: 
       objectReference: {fileID: 1486197580}
-    - target: {fileID: 8875611864766148685, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
-      propertyPath: weaponTag
-      value: Rifle
-      objectReference: {fileID: 0}
-    - target: {fileID: 8875611864766148685, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
-      propertyPath: reloadTime
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
