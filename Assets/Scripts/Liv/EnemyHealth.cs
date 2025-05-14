@@ -5,6 +5,7 @@ public class EnemyHealth : Health
     [SerializeField] private float glockDamage = 3f;
     [SerializeField] private float rifleDamage = 5f;
     [SerializeField] private float burstDamage = 7f;
+    [SerializeField] private float boxDamage = 50f;
 
     [SerializeField] private GameObject bossHealthBarList;
     void Start()
@@ -45,6 +46,17 @@ public class EnemyHealth : Health
             if (floatingTextPrefab != null)
             {
                 ShowFloatingText(burstDamage);
+            }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Box"))
+        {
+            TakeDamage(boxDamage);
+            if (floatingTextPrefab != null)
+            {
+                ShowFloatingText(boxDamage);
             }
         }
     }

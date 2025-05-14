@@ -242,4 +242,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDamageable: 1
   startHP: 100
+  healthBar: {fileID: 0}
   floatingTextPrefab: {fileID: 0}
+  glockDamage: 3
+  rifleDamage: 5
+  burstDamage: 7
+  boxDamage: 5
+  bossHealthBarList: {fileID: 0}

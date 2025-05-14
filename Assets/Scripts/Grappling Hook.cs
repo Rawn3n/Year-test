@@ -12,6 +12,7 @@ public class GrapplingHook : MonoBehaviour
 
     private Vector3 grapplePoint;
     private DistanceJoint2D joint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +26,16 @@ public class GrapplingHook : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            Vector2 origin = transform.position;
+            Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = (mouseWorldPosition - origin).normalized;
+
             RaycastHit2D hit = Physics2D.Raycast(
-            origin: Camera.main.ScreenToWorldPoint(Input.mousePosition),
-            direction: Vector2.zero,
-            distance: Mathf.Infinity,
-            layerMask: grappleLayer);
+                origin,
+                direction,
+                grappleLength,
+                grappleLayer
+            );
 
             if (hit.collider != null)
             {
