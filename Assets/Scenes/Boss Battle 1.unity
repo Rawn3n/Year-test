@@ -1709,9 +1709,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2519956981554202961, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
+      propertyPath: orgSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519956981554202961, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
+      propertyPath: jumpVelocity
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3240768772601873787, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
       propertyPath: grappleLength
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7814807360351866902, guid: fe1a4a29deff0a54a937a6f66441e493, type: 3}
       propertyPath: m_Name
@@ -2723,7 +2731,6 @@ GameObject:
   - component: {fileID: 2005129807}
   - component: {fileID: 2005129808}
   - component: {fileID: 2005129809}
-  - component: {fileID: 2005129810}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -2949,19 +2956,6 @@ MonoBehaviour:
   target: {fileID: 666338243}
   bulletSpeed: 10
   fireRate: 1
---- !u!114 &2005129810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005129800}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4474fbbcc72ffc94e9dcaba6b3e8a328, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossDrop: {fileID: 5993846701409723272, guid: 63a3317a304ec1843bc9d5fd35b46e1d, type: 3}
 --- !u!4 &2005704824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7989740229391748886, guid: 5cb213ff4e7e0884eae854c8c2c5b6fb, type: 3}

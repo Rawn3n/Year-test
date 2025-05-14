@@ -7,27 +7,24 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float fireRate = 0.5f;
     [SerializeField] protected float gravity = 0.5f;
     [SerializeField] protected float bulletSpeed = 2f;
-    
+
     [SerializeField] protected int startammo = 30;
     [SerializeField] protected int currentammo;
     [SerializeField] protected float reloadTime = 10f;
     [SerializeField] private TextMeshProUGUI AmmoText;
 
     [SerializeField] protected string weaponTag = "";
-
     [SerializeField] protected Transform firePoint;
     [SerializeField] protected Sprite bulletSprite;
 
     protected bool isReloading = false;
-
-
+    protected Coroutine reloadRoutine;
     protected PlayerController playerController;
     private float nextFireTime;
 
     protected virtual void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
-
         currentammo = startammo;
     }
 
@@ -35,30 +32,29 @@ public abstract class Weapon : MonoBehaviour
     {
         RotateTowardsMouse();
         ShowAmmo(currentammo, AmmoText);
+
         if (isReloading)
         {
-            //Debug.Log("Reloading...");
             AmmoText.text = "!!";
             return;
         }
-
 
         if (Input.GetMouseButton(0) && playerController.canAttack() && Time.time >= nextFireTime && currentammo >= 1)
         {
             nextFireTime = Time.time + fireRate;
             Fire();
-            //currentammo -= 1;
-        }
-        if (currentammo <= 0)
-        {
-            StartCoroutine(ReloadCoroutine());
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if ((currentammo <= 0 || Input.GetKeyDown(KeyCode.R)) && !isReloading)
         {
-            StartCoroutine(ReloadCoroutine());
+            if (reloadRoutine != null)
+            {
+                StopCoroutine(reloadRoutine);
+            }
+            reloadRoutine = StartCoroutine(ReloadCoroutine());
         }
     }
+
     protected void ShowAmmo(int ammo, TextMeshProUGUI text)
     {
         if (text != null)
@@ -72,11 +68,6 @@ public abstract class Weapon : MonoBehaviour
         isReloading = true;
 
         float timer = 0f;
-        if (!gameObject.activeInHierarchy)
-        {
-            isReloading = false;
-            yield break;
-        }
         while (timer < reloadTime)
         {
             timer += Time.deltaTime;
@@ -87,26 +78,33 @@ public abstract class Weapon : MonoBehaviour
         isReloading = false;
     }
 
+    private void OnDisable()
+    {
+        if (reloadRoutine != null)
+        {
+            StopCoroutine(reloadRoutine);
+            reloadRoutine = null;
+        }
+        isReloading = false;
+    }
+
     private void RotateTowardsMouse()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = mousePos - transform.position;
         direction.z = 0f;
 
-        // Calculate angle
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        // Flip the gun based on player direction
         bool isPlayerFacingRight = transform.root.localScale.x < 0;
         float flipX = isPlayerFacingRight ? -1f : 1f;
         float flipY = (angle > 90 || angle < -90) ? -1f : 1f;
 
-        // Apply flipping
         transform.localScale = new Vector3(flipX, flipY, 1f);
     }
 
-    protected abstract void Fire(); // To be implemented in subclasses
+    protected abstract void Fire();
 
     protected void SetShooter(GameObject bullet)
     {

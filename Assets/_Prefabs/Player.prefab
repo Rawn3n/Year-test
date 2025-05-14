@@ -394,8 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 8875611864766148685}
   - {fileID: 8363005704239651981}
+  - {fileID: 8875611864766148685}
   - {fileID: 7917684600018655403}
 --- !u!232 &2806965103795785405
 DistanceJoint2D:
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80473d2d6de7e74aba182f3d8491891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grappleLength: 2
+  grappleLength: 10
   grappleLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -483,6 +483,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4325242211828509619, guid: 81b25c47d2cc9584db885183ab81e99e, type: 3}
+      propertyPath: reloadTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4895729297065334032, guid: 81b25c47d2cc9584db885183ab81e99e, type: 3}
       propertyPath: m_Name
       value: Glock
@@ -531,6 +535,10 @@ PrefabInstance:
     - target: {fileID: 1723466955070124558, guid: 7886e34de5474ed4883f8a83d3cccdcc, type: 3}
       propertyPath: m_Name
       value: Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735598446330652215, guid: 7886e34de5474ed4883f8a83d3cccdcc, type: 3}
+      propertyPath: reloadTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3089508727713955516, guid: 7886e34de5474ed4883f8a83d3cccdcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -620,6 +628,10 @@ PrefabInstance:
     - target: {fileID: 168918803797878456, guid: d1395815ff041fc4c86176a13748ad0b, type: 3}
       propertyPath: m_Name
       value: BurstRifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 475804250935665656, guid: d1395815ff041fc4c86176a13748ad0b, type: 3}
+      propertyPath: reloadTime
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2370379531720411467, guid: d1395815ff041fc4c86176a13748ad0b, type: 3}
       propertyPath: m_LocalPosition.x

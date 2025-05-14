@@ -2,47 +2,87 @@ using UnityEngine;
 
 public class SwitchWeapon : MonoBehaviour
 {
-    public Weapon[] weapons; // Liste over alle våben (sættes i Inspector)
+    public Weapon[] weapons;
+    private Weapon[] unlockedWeapons;
     private int currentWeaponIndex = 0;
 
     void Start()
     {
-        EquipWeapon(currentWeaponIndex); // Start med første våben
+        unlockedWeapons = new Weapon[weapons.Length];
+
+        foreach (var weapon in weapons)
+        {
+            if (weapon != null)
+                weapon.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (PlayerPrefs.GetInt("weapon_" + i, 0) == 1)
+            {
+                UnlockWeapon(i);
+
+                if (currentWeaponIndex == 0)
+                {
+                    currentWeaponIndex = i;
+                }
+            }
+        }
+
+        EquipWeapon(currentWeaponIndex);
     }
+
 
     void Update()
     {
-        // Tryk 1 for våben 1, 2 for våben 2, osv.
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchToWeapon(0);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchToWeapon(1);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchToWeapon(2);
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchToWeapon(3);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchToWeapon(4);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchToWeapon(5);
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchToWeapon(6);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchToWeapon(7);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchToWeapon(8);
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchToWeapon(9);
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { SwitchToWeapon(0); }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { SwitchToWeapon(1); }
+        if (Input.GetKeyDown(KeyCode.Alpha3)) { SwitchToWeapon(2); }
+        if (Input.GetKeyDown(KeyCode.Alpha4)) { SwitchToWeapon(3); }
+        if (Input.GetKeyDown(KeyCode.Alpha5)) { SwitchToWeapon(4); }
+        if (Input.GetKeyDown(KeyCode.Alpha6)) { SwitchToWeapon(5); }
+        if (Input.GetKeyDown(KeyCode.Alpha7)) { SwitchToWeapon(6); }
     }
 
     void SwitchToWeapon(int index)
     {
-        if (index >= weapons.Length || index < 0) return; // Undgå fejl
+        if (index >= unlockedWeapons.Length || index < 0 || unlockedWeapons[index] == null)
+        {
+            Debug.LogWarning("Invalid weapon index or weapon not unlocked: " + index);
+            return;
+        }
 
-        // Deaktiver nuværende våben
-        weapons[currentWeaponIndex].gameObject.SetActive(false);
+        if (unlockedWeapons[currentWeaponIndex] != null)
+        {
+            unlockedWeapons[currentWeaponIndex].gameObject.SetActive(false);
+        }
 
-        // Aktiver det nye våben
         currentWeaponIndex = index;
-        weapons[currentWeaponIndex].gameObject.SetActive(true);
+        unlockedWeapons[currentWeaponIndex].gameObject.SetActive(true);
     }
 
     void EquipWeapon(int index)
     {
-        // Slå alle våben fra, bortset fra det valgte
-        for (int i = 0; i < weapons.Length; i++)
+        for (int i = 0; i < unlockedWeapons.Length; i++)
         {
-            weapons[i].gameObject.SetActive(i == index);
+            if (unlockedWeapons[i] != null)
+            {
+                unlockedWeapons[i].gameObject.SetActive(i == index);
+            }
+        }
+    }
+
+    void UnlockWeapon(int index)
+    {
+        if (index >= 0 && index < weapons.Length && weapons[index] != null)
+        {
+            unlockedWeapons[index] = weapons[index];
+            PlayerPrefs.SetInt("weapon_" + index, 1);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            Debug.LogWarning("Attempting to unlock an invalid weapon index or null weapon: " + index);
         }
     }
 }
