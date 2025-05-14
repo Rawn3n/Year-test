@@ -50,10 +50,10 @@
             {
                 TakeDamage(20);
             }
-        if (other.CompareTag("BossBullet"))
-        {
-            TakeDamage(50);
-        }
+            if (other.CompareTag("BossBullet"))
+            {
+                TakeDamage(50);
+            }
     }
         public void TakeDamage(float damage)
         {
