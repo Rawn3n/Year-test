@@ -8,6 +8,7 @@ public class EnemyHealth : Health
     [SerializeField] private float boxDamage = 50f;
 
     [SerializeField] private GameObject bossHealthBarList;
+    public GameObject bossDrop;
     void Start()
     {
         currentHP = startHP;
@@ -66,6 +67,10 @@ public class EnemyHealth : Health
         if (bossHealthBarList != null)
         {
             Destroy(bossHealthBarList);
+        }
+        if (CompareTag("Boss"))
+        {
+            Instantiate(bossDrop, transform.position, Quaternion.identity);
         }
     }
 }
