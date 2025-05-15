@@ -84,7 +84,7 @@ public class SwitchWeapon : MonoBehaviour
         }
     }
 
-    void UnlockWeapon(int index)
+    public void UnlockWeapon(int index)
     {
         if (index >= 0 && index < weapons.Length && weapons[index] != null)
         {

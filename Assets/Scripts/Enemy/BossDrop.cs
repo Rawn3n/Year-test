@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class BossDrop : MonoBehaviour
 {
-    public GameObject bossDrop;
+    protected SwitchWeapon sW;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        sW = GetComponent<SwitchWeapon>();
     }
 
     // Update is called once per frame
@@ -15,12 +15,11 @@ public class BossDrop : MonoBehaviour
     {
         
     }
-
-    void OnDestroy()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Application.isPlaying)
+        if (collision.collider.CompareTag("Player"))
         {
-            Instantiate(bossDrop, transform.position, Quaternion.identity);
+            sW.UnlockWeapon(1);
         }
     }
 }
