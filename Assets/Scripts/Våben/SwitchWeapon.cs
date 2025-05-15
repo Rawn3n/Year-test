@@ -4,7 +4,7 @@ public class SwitchWeapon : MonoBehaviour
 {
     public Weapon[] weapons;
     private Weapon[] unlockedWeapons;
-    private int currentWeaponIndex = 0;
+    private int currentWeaponIndex = -1;
 
     void Start()
     {
@@ -16,22 +16,34 @@ public class SwitchWeapon : MonoBehaviour
                 weapon.gameObject.SetActive(false);
         }
 
+        if (PlayerPrefs.GetInt("weapon_0", 0) == 0)
+        {
+            PlayerPrefs.SetInt("weapon_0", 1);
+            PlayerPrefs.Save();
+        }
+
         for (int i = 0; i < weapons.Length; i++)
         {
             if (PlayerPrefs.GetInt("weapon_" + i, 0) == 1)
             {
                 UnlockWeapon(i);
 
-                if (currentWeaponIndex == 0)
+                if (currentWeaponIndex == -1)
                 {
                     currentWeaponIndex = i;
                 }
             }
         }
 
-        EquipWeapon(currentWeaponIndex);
+        if (currentWeaponIndex != -1)
+        {
+            EquipWeapon(currentWeaponIndex);
+        }
+        else
+        {
+            Debug.LogWarning("No weapons unlocked!");
+        }
     }
-
 
     void Update()
     {
@@ -46,7 +58,7 @@ public class SwitchWeapon : MonoBehaviour
 
     void SwitchToWeapon(int index)
     {
-        if (index >= unlockedWeapons.Length || index < 0 || unlockedWeapons[index] == null)
+        if (index < 0 || index >= unlockedWeapons.Length || unlockedWeapons[index] == null)
         {
             Debug.LogWarning("Invalid weapon index or weapon not unlocked: " + index);
             return;
