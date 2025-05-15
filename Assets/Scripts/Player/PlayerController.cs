@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isJumping)
         {
-            //rb.AddForce(Vector2.up * jumpVelocity); //jumpVelocity = 40
+            rb.AddForce(Vector2.up * jumpVelocity); //jumpVelocity = 40
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
             isJumping = false;
         }

@@ -41,5 +41,7 @@ public class Glock : Weapon
         bullet.AddComponent<Bullet>();
 
         SetShooter(bullet); // kald vores funktion så den ikke rammer ham der skyder den
+
+        currentammo -= 1;
     }
 }
