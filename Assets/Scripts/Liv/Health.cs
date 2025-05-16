@@ -37,6 +37,10 @@
             {
                 TakeDamage(50);
             }
+            if (collision.collider.CompareTag("Boss"))
+            {
+                TakeDamage(100);
+            }
 
             if (collision.collider.CompareTag("Spike"))
             {

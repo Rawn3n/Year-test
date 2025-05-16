@@ -68,9 +68,9 @@ public class EnemyHealth : Health
         {
             Destroy(bossHealthBarList);
         }
-        if (CompareTag("Boss"))
-        {
-            Instantiate(bossDrop, transform.position, Quaternion.identity);
-        }
+        //if (gameObject.CompareTag("Boss"))
+        //{
+        Instantiate(bossDrop, transform.position, Quaternion.identity);
+        //}
     }
 }
